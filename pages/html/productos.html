@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JululuCustom - Nuestros Productos</title>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+  <link rel="stylesheet" href="../../index.css">
+  <link rel="stylesheet" href="../css/productos.css" />
+</head>
+<body>
+
+  <!-- HEADER Y NAVEGACIÓN -->
+  <header class="main-header">
+    <div class="header-container">
+      
+      <!-- Redes Sociales -->
+      <div class="social-icons">
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+      </div>
+
+      <!-- Logo Central -->
+      <a href="../../index.html" class="brand-logo">
+        <span class="logo-text">Jululu<span class="highlight">Custom</span></span>
+      </a>
+
+      <!-- Buscador y Carrito/Acciones -->
+      <div class="header-actions">
+        <div class="search-box">
+          <input type="text" placeholder="Buscar producto...">
+          <button aria-label="Buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+      </div>
+
+      <!-- Botón Menú Móvil -->
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- Menú de Navegación Principal -->
+    <nav class="main-nav" id="mainNav">
+      <ul class="nav-list">
+        <li><a href="../../index.html">Inicio</a></li>
+        <li><a href="./productos.html" class="active">Productos</a></li>
+        <li><a href="../../index.html#personales">Personales</a></li>
+        <li><a href="../../index.html#corporativos">Corporativos</a></li>
+        <li><a href="../../index.html#galeria">Galeria</a></li>
+        <li><a href="../../index.html#nosotros">Nosotros</a></li>
+        <li><a href="../../index.html#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- CONTENEDOR PRINCIPAL DE LA VISTA DE PRODUCTOS -->
+  <main class="products-layout-container">
+    
+    <!-- SUB-MENÚ LATERAL ESTÁTICO (STICKY) -->
+    <aside class="sidebar-categories">
+  <h3>Categorías</h3>
+  <ul class="category-menu">
+    <li><button class="cat-btn active" data-category="all">Todo</button></li>
+    <li><button class="cat-btn" data-category="termos">Termos</button></li>
+    <li><button class="cat-btn" data-category="ecologicos">Ecológicos</button></li>
+    <li><button class="cat-btn" data-category="mugs">Mugs</button></li>
+    <li><button class="cat-btn" data-category="personales">Personales</button></li>
+    <li><button class="cat-btn" data-category="corporativos">Corporativos</button></li>
+  </ul>
+</aside>
+
+    <!-- GRILLA DE PRODUCTOS FILTRABLES -->
+    <section class="products-content">
+      <div class="products-header">
+        <h2>Nuestros Productos</h2>
+        <p>Elige tu producto o contáctanos para una propuesta a medida</p>
+      </div>
+      
+      <div class="products-catalog-grid" id="productsGrid">
+        
+        <!-- Producto 1 -->
+        <article class="catalog-card" data-category="termos">
+          <div class="card-image">
+            <img src="../../img/Producto/Termos/Termo Coffe.jpg" alt="Termo Térmico" />
+          </div>
+          <div class="card-info">
+            <span class="category-tag">Personal / Corporativo</span>
+            <h4>Termo Térmico Personalizado</h4>
+            <p>Conserva tus bebidas frías o calientes con tu logo grabado.</p>
+            <div class="product-bottom">
+              <a href="https://wa.me/573105178777?text=Hola,%20me%20interesa%20cotizar%20el%20Termo%20T%C3%A9rmico%20Personalizado" target="_blank" class="btn-buy">
+                <i class="fa-brands fa-whatsapp"></i> Cotizar Ahora
+              </a>
+            </div>
+          </div>
+        </article>
+        <article class="catalog-card" data-category="termos">
+          <div class="card-image">
+            <img src="../../img/Producto/Termos/Termo deportivo imán.jpg" alt="Termo Térmico" />
+          </div>
+          <div class="card-info">
+            <span class="category-tag">Personal / Corporativo</span>
+            <h4>Termo Térmico Personalizado</h4>
+            <p>Conserva tus bebidas frías o calientes con tu logo grabado.</p>
+            <div class="product-bottom">
+              <a href="https://wa.me/573105178777?text=Hola,%20me%20interesa%20cotizar%20el%20Termo%20T%C3%A9rmico%20Personalizado" target="_blank" class="btn-buy">
+                <i class="fa-brands fa-whatsapp"></i> Cotizar Ahora
+              </a>
+            </div>
+          </div>
+        </article>
+        <article class="catalog-card" data-category="termos">
+          <div class="card-image">
+            <img src="../../img/Producto/Termos/Termo digital.jpg" alt="Termo Térmico" />
+          </div>
+          <div class="card-info">
+            <span class="category-tag">Personal / Corporativo</span>
+            <h4>Termo Térmico Personalizado</h4>
+            <p>Conserva tus bebidas frías o calientes con tu logo grabado.</p>
+            <div class="product-bottom">
+              <a href="https://wa.me/573105178777?text=Hola,%20me%20interesa%20cotizar%20el%20Termo%20T%C3%A9rmico%20Personalizado" target="_blank" class="btn-buy">
+                <i class="fa-brands fa-whatsapp"></i> Cotizar Ahora
+              </a>
+            </div>
+          </div>
+        </article>
+        <article class="catalog-card" data-category="termos">
+          <div class="card-image">
+            <img src="../../img/Producto/Termos/Termo doble apertura.jpg" alt="Termo Térmico" />
+          </div>
+          <div class="card-info">
+            <span class="category-tag">Personal / Corporativo</span>
+            <h4>Termo Térmico Personalizado</h4>
+            <p>Conserva tus bebidas frías o calientes con tu logo grabado.</p>
+            <div class="product-bottom">
+              <a href="https://wa.me/573105178777?text=Hola,%20me%20interesa%20cotizar%20el%20Termo%20T%C3%A9rmico%20Personalizado" target="_blank" class="btn-buy">
+                <i class="fa-brands fa-whatsapp"></i> Cotizar Ahora
+              </a>
+            </div>
+          </div>
+        </article>
+        <article class="catalog-card" data-category="termos">
+          <div class="card-image">
+            <img src="../../img/Producto/Termos/Termo Manija.jpg" alt="Termo Térmico" />
+          </div>
+          <div class="card-info">
+            <span class="category-tag">Personal / Corporativo</span>
+            <h4>Termo Térmico Personalizado</h4>
+            <p>Conserva tus bebidas frías o calientes con tu logo grabado.</p>
+            <div class="product-bottom">
+              <a href="https://wa.me/573105178777?text=Hola,%20me%20interesa%20cotizar%20el%20Termo%20T%C3%A9rmico%20Personalizado" target="_blank" class="btn-buy">
+                <i class="fa-brands fa-whatsapp"></i> Cotizar Ahora
+              </a>
+            </div>
+          </div>
+        </article><article class="catalog-card" data-category="termos">
+          <div class="card-image">
+            <img src="../../img/Producto/Termos/Termo Playero.jpg" alt="Termo Térmico" />
+          </div>
+          <div class="card-info">
+            <span class="category-tag">Personal / Corporativo</span>
+            <h4>Termo Térmico Personalizado</h4>
+            <p>Conserva tus bebidas frías o calientes con tu logo grabado.</p>
+            <div class="product-bottom">
+              <a href="https://wa.me/573105178777?text=Hola,%20me%20interesa%20cotizar%20el%20Termo%20T%C3%A9rmico%20Personalizado" target="_blank" class="btn-buy">
+                <i class="fa-brands fa-whatsapp"></i> Cotizar Ahora
+              </a>
+            </div>
+          </div>
+        </article><article class="catalog-card" data-category="termos">
+          <div class="card-image">
+            <img src="../../img/Producto/Termos/Termo tipo Stanley 30onz.jpg" alt="Termo Térmico" />
+          </div>
+          <div class="card-info">
+            <span class="category-tag">Personal / Corporativo</span>
+            <h4>Termo Térmico Personalizado</h4>
+            <p>Conserva tus bebidas frías o calientes con tu logo grabado.</p>
+            <div class="product-bottom">
+              <a href="https://wa.me/573105178777?text=Hola,%20me%20interesa%20cotizar%20el%20Termo%20T%C3%A9rmico%20Personalizado" target="_blank" class="btn-buy">
+                <i class="fa-brands fa-whatsapp"></i> Cotizar Ahora
+              </a>
+            </div>
+          </div>
+        </article>
+        <article class="catalog-card" data-category="termos">
+          <div class="card-image">
+            <img src="../../img/Producto/Termos/Termo tipo Stanley 40 onz.jpg" alt="Termo Térmico" />
+          </div>
+          <div class="card-info">
+            <span class="category-tag">Personal / Corporativo</span>
+            <h4>Termo Térmico Personalizado</h4>
+            <p>Conserva tus bebidas frías o calientes con tu logo grabado.</p>
+            <div class="product-bottom">
+              <a href="https://wa.me/573105178777?text=Hola,%20me%20interesa%20cotizar%20el%20Termo%20T%C3%A9rmico%20Personalizado" target="_blank" class="btn-buy">
+                <i class="fa-brands fa-whatsapp"></i> Cotizar Ahora
+              </a>
+            </div>
+          </div>
+        </article><article class="catalog-card" data-category="termos">
+          <div class="card-image">
+            <img src="../../img/Producto/Termos/Termos_PagWEB_01.jpg" alt="Termo Térmico" />
+          </div>
+          <div class="card-info">
+            <span class="category-tag">Personal / Corporativo</span>
+            <h4>Termo Térmico Personalizado</h4>
+            <p>Conserva tus bebidas frías o calientes con tu logo grabado.</p>
+            <div class="product-bottom">
+              <a href="https://wa.me/573105178777?text=Hola,%20me%20interesa%20cotizar%20el%20Termo%20T%C3%A9rmico%20Personalizado" target="_blank" class="btn-buy">
+                <i class="fa-brands fa-whatsapp"></i> Cotizar Ahora
+              </a>
+            </div>
+          </div>
+        </article>
+        <article class="catalog-card" data-category="termos">
+          <div class="card-image">
+            <img src="../../img/Producto/Termos/Termos_PagWEB_02.jpg" alt="Termo Térmico" />
+          </div>
+          <div class="card-info">
+            <span class="category-tag">Personal / Corporativo</span>
+            <h4>Termo Térmico Personalizado</h4>
+            <p>Conserva tus bebidas frías o calientes con tu logo grabado.</p>
+            <div class="product-bottom">
+              <a href="https://wa.me/573105178777?text=Hola,%20me%20interesa%20cotizar%20el%20Termo%20T%C3%A9rmico%20Personalizado" target="_blank" class="btn-buy">
+                <i class="fa-brands fa-whatsapp"></i> Cotizar Ahora
+              </a>
+            </div>
+          </div>
+        </article>
+        
+
+        <!-- Producto 2 -->
+        <article class="catalog-card" data-category="ecologicos">
+          <div class="card-image">
+            <img src="../../img/Producto/Ecologicos/Mug origen 350ML.jpg" alt="Termo ecologico" />
+          </div>
+          <div class="card-info">
+            <span class="category-tag">Personal / Corporativo</span>
+            <h4>Termo ecologico</h4>
+            <p>Personaliza a tu medida para toda ocacion.</p>
+            <div class="product-bottom">
+              <a href="https://wa.me/573105178777?text=Hola,%20me%20interesa%20cotizar" target="_blank" class="btn-buy">
+                <i class="fa-brands fa-whatsapp"></i> Cotizar Ahora
+              </a>
+            </div>
+          </div>
+        </article>
+
+      
+        <article class="catalog-card" data-category="ecologicos">
+          <div class="card-image">
+            <img src="../../img/Producto/Ecologicos/Mug milu.jpg" alt="Kit Welcome Box" />
+          </div>
+          <div class="card-info">
+            <span class="category-tag">Personal / Corporativo</span>
+            <h4>Termo ecologico</h4>
+            <p>Personaliza a tu medida para toda ocacion.</p>
+            <div class="product-bottom">
+              <a href="https://wa.me/573105178777?text=Hola,%20me%20interesa%20cotizar" target="_blank" class="btn-buy">
+                <i class="fa-brands fa-whatsapp"></i> Cotizar Ahora
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="catalog-card" data-category="ecologicos">
+          <div class="card-image">
+            <img src="../../img/Producto/Ecologicos/Termo cuchara.jpg" alt="Kit Welcome Box" />
+          </div>
+          <div class="card-info">
+            <span class="category-tag">Personal / Corporativo</span>
+            <h4>Termo ecologico</h4>
+            <p>Personaliza a tu medida para toda ocacion.</p>
+            <div class="product-bottom">
+              <a href="https://wa.me/573105178777?text=Hola,%20me%20interesa%20cotizar" target="_blank" class="btn-buy">
+                <i class="fa-brands fa-whatsapp"></i> Cotizar Ahora
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="catalog-card" data-category="ecologicos">
+          <div class="card-image">
+            <img src="../../img/Producto/Ecologicos/Termo tira 250ml.jpg" alt="Kit Welcome Box" />
+          </div>
+          <div class="card-info">
+            <span class="category-tag">Personal / Corporativo</span>
+            <h4>Termo ecologico</h4>
+            <p>Personaliza a tu medida para toda ocacion.</p>
+            <div class="product-bottom">
+              <a href="https://wa.me/573105178777?text=Hola,%20me%20interesa%20cotizar" target="_blank" class="btn-buy">
+                <i class="fa-brands fa-whatsapp"></i> Cotizar Ahora
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER PRINCIPAL -->
+  <footer class="main-footer" id="contacto">
+    <div class="footer-container">
+      <div class="footer-col brand-col">
+        <h3>Jululu<span>Custom</span></h3>
+        <p>Expertos en personalización de marca y detalles inolvidables.</p>
+        <div class="footer-socials">
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="../../index.html">Inicio</a></li>
+          <li><a href="./productos.html">Productos</a></li>
+          <li><a href="../../index.html#nosotros">Nosotros</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contacto Directo</h4>
+        <p><i class="fa-solid fa-envelope"></i> Jululu.creativo@gmail.com</p>
+        <p><i class="fa-solid fa-phone"></i> +57 310 517 8777</p>
+        <p><i class="fa-solid fa-location-dot"></i> Dg 50 c sur # 13 d 18, Bogotá, Colombia</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Jululu Custom. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+  <a href="https://wa.me/573105178777?text=Hola%20me%20interesa%20comprar%20con%20ustedes" 
+     class="whatsapp-float" 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     aria-label="Contactar por WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span class="tooltip-text">¿Necesitas ayuda?</span>
+  </a>
+
+  <script src="../../index.js"></script>
+  <script src="../js/productos.js"></script>
+</body>
+</html>

@@ -8,7 +8,7 @@
 
 :root {
   --primary: #00b7ff;       /* Azul Cian Moderno */
-  --primary-dark: #007ea7;
+  --primary-dark: #0050c8;
   --accent: #ff00ff;        /* Rosa/Magenta Sofisticado */
   --accent-hover: #b0124a;
   --dark: #1f2937;          /* Gris Oscuro / Texto */
@@ -20,6 +20,10 @@
   --shadow-md: 0 10px 25px rgba(0,0,0,0.1);
   --transition: all 0.3s ease;
 }
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
 
 html {
   scroll-behavior: smooth;
@@ -29,6 +33,7 @@ body {
   background-color: var(--light-bg);
   color: var(--dark);
   line-height: 1.6;
+  position: relative;
 }
 
 /* TOP ANNOUNCEMENT BAR */
@@ -45,8 +50,10 @@ body {
 .main-header {
   background-color: var(--white);
   box-shadow: var(--shadow-sm);
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 1000;
 }
 
@@ -151,11 +158,11 @@ body {
 
 .nav-list a {
   display: block;
-  padding: 12px 24px;
+  padding: 12px 12px;
   color: var(--white);
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   transition: var(--transition);
@@ -167,10 +174,40 @@ body {
 }
 
 /* HERO SLIDER */
+/* ==========================================================================
+   AJUSTE Y ENCUADRE DE IMÁGENES DEL SLIDER BANNER
+   ========================================================================== */
+
+.hero-slider,
+.slide-container {
+  width: 100% !important;
+  /* Ocupa exactamente el alto de la pantalla menos el menú superior (ajusta 90px según el alto de tu barra) */
+  height: calc(100vh - 90px) !important; 
+  min-height: 480px !important;
+  position: relative !important;
+  overflow: hidden !important;
+  background-color: #f4f4f4 !important; /* Fondo neutro por si la imagen tiene un aspect ratio distinto */
+}
+
+.hero-slider img,
+.slide-container img,
+.slide img {
+  width: 100% !important;
+  height: 100% !important;
+  
+  /* Muestra la imagen 100% COMPLETA sin recortar bordes ni textos */
+  object-fit: contain !important; 
+  
+  object-position: center !important;
+  display: block !important;
+}
+
 .hero-slider {
+  margin-top: 100px;
   position: relative;
   width: 100%;
-  height: 480px;
+  height: calc(100vh - 140px);
+  max-height: 620px;
   background-color: #000;
   overflow: hidden;
 }
@@ -273,46 +310,89 @@ body {
 .prev { left: 20px; }
 .next { right: 20px; }
 
-/* SECCIÓN CARACTERÍSTICAS */
+/* ==========================================================================
+   FEATURES-SECTION: FONDO FULL WIDTH (100% ANCHO) Y GRID CENTRADO
+   ========================================================================== */
+
 .features-section {
-  max-width: 1200px;
-  margin: -40px auto 40px auto;
-  position: relative;
-  z-index: 20;
-  padding: 0 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+  position: relative !important;
+  width: 100% !important; /* Ocupa todo el ancho de la pantalla */
+  max-width: 100% !important; /* Elimina la restricción del ancho máximo */
+  background-color: var(--primary-dark) !important; /* Tu color azul de nav:hover */
+  padding: 60px 40px !important; /* Espaciado interno horizontal y vertical */
+  margin: 0 !important; /* Elimina márgenes laterales */
+  box-sizing: border-box !important;
+  z-index: 1 !important;
+
+  /* Mantiene las 2 columnas pero distribuidas internamente */
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important; 
+  gap: 30px !important;
 }
 
-.feature-card {
-  background: var(--white);
-  padding: 25px 20px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: var(--shadow-md);
+/* Tarjetas individuales dentro del bloque */
+.features-section .feature-card {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 16px !important;
+  padding: 40px 30px !important;
+  text-align: center !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+  cursor: default !important;
+  transition: none !important;
+  transform: none !important;
+  
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
-.feature-card:hover{
-  transform: translateY(-8px);
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12), 
-              0 4px 8px rgba(0, 0, 0, 0.06);
+/* Evita animaciones hover */
+.features-section .feature-card:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
 }
 
-.feature-card i {
-  font-size: 2rem;
-  color: var(--primary);
-  margin-bottom: 12px;
+/* Tamaño de íconos y textos */
+.features-section .feature-card i,
+.features-section .feature-card svg,
+.features-section .feature-card img,
+.features-section .feature-card .icon {
+  font-size: 3.2rem !important;
+  width: 60px !important;
+  height: 60px !important;
+  margin-bottom: 16px !important;
+  color: #ffffff !important;
+  fill: #ffffff !important;
 }
 
-.feature-card h3 {
-  font-size: 1.05rem;
-  margin-bottom: 6px;
+.features-section .feature-card h3,
+.features-section .feature-card h4 {
+  color: #ffffff !important;
+  font-size: 1.4rem !important;
+  font-weight: 700 !important;
+  margin-top: 0 !important;
+  margin-bottom: 12px !important;
 }
 
-.feature-card p {
-  font-size: 0.85rem;
-  color: #6b7280;
+.features-section .feature-card p {
+  color: #ffffff !important;
+  font-size: 1rem !important;
+  line-height: 1.5 !important;
+  opacity: 0.95 !important;
+  margin: 0 !important;
+}
+
+/* Responsivo para celulares */
+@media (max-width: 768px) {
+  .features-section {
+    grid-template-columns: 1fr !important;
+    padding: 40px 20px !important;
+    gap: 20px !important;
+  }
 }
 
 /* PRODUCTOS GRID */
@@ -439,7 +519,8 @@ body {
 
 /* SOBRE NOSOTROS */
 .about-section {
-  background-color: var(--white);
+  background-color: var(--primary-dark);
+  color: white;
   padding: 60px 20px;
 }
 
@@ -453,7 +534,7 @@ body {
 }
 
 .sub-title {
-  color: var(--accent);
+  color: var(--whatsapp-green);
   font-weight: 700;
   text-transform: uppercase;
   font-size: 0.85rem;
@@ -604,6 +685,51 @@ body {
   opacity: 1;
 }
 
+/* PRELOADER FULLSCREEN RESPONSIVE */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  /* Utiliza 100dvh para evitar saltos por las barras dinámicas del navegador en móvil */
+  height: 100dvh; 
+  background-color: transparent !important;
+  background: transparent !important; /* Ajusta este color al de tu fondo de video (por ejemplo, el azul cian) */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+  overflow: hidden;
+}
+
+#preloader-video {
+  width: 100%;
+  height: 100%;
+  /* Cambiamos 'cover' por 'contain' para garantizar que el video nunca se recorte */
+  object-fit: cover; 
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* Reglas específicas para pantallas móviles pequeñas (Media Query) */
+@media (max-width: 768px) {
+  #preloader-video {
+    /* Ajusta el ancho al 90% del ancho del dispositivo para que el video mantenga margen */
+    width: 90%;
+    height: auto;
+  }
+}
+
+/* Clase para ocultar el preloader */
+#preloader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 /* MEDIA QUERIES (RESPONSIVE) */
 @media (max-width: 900px) {
   .about-container {
@@ -656,5 +782,31 @@ body {
 
   .search-box input {
     width: 100px;
+  }
+}
+
+/* AJUSTES PARA PANTALLAS MUY PEQUEÑAS (ANCHO MENOR O IGUAL A 370PX) */
+@media (max-width: 370px) {
+  /* 1. Ocultar la barra de búsqueda para liberar espacio horizontal */
+  .search-box, 
+  .header-actions {
+    display: none !important;
+  }
+
+  /* 2. Reducir ligeramente el tamaño del logo para evitar desbordes */
+  .logo-text {
+    font-size: 1.35rem;
+  }
+
+  /* 3. Asegurar espacio para el botón hamburguesa */
+  .mobile-menu-btn {
+    font-size: 1.3rem;
+    padding: 4px;
+  }
+
+  /* 4. Dar una distribución limpia a los elementos restantes */
+  .header-container {
+    padding: 10px 12px;
+    justify-content: space-between;
   }
 }

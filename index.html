@@ -16,9 +16,17 @@
 </head>
 <body>
 
-  <!-- BARRA ANUNCIO / TOP BAR -->
-  <div class="announcement-bar">
+  <!-- BARRA ANUNCIO / TOP BAR NO DEJAR -->
+  <!-- <div class="announcement-bar">
     <span>Regalos corporativos y personalizados que crean experiencias inolvidables</span>
+  </div> -->
+
+  <!-- PRELOADER VIDEO INTRO -->
+  <div id="preloader">
+    <video id="preloader-video" autoplay muted playsinline>
+      <source src="./video/Entrada_WEB_SONIDO.webm" type="video/webm">
+      Tu navegador no soporta videos en WebM.
+    </video>
   </div>
 
   <!-- HEADER Y NAVEGACIÓN -->
@@ -55,11 +63,13 @@
     <nav class="main-nav" id="mainNav">
       <ul class="nav-list">
         <li><a href="#inicio" class="active">Inicio</a></li>
-        <li><a href="#productos">Productos</a></li>
+        <li><a href="./pages/html/productos.html">Productos</a></li>
         <li><a href="#personales">Personales</a></li>
         <li><a href="#corporativos">Corporativos</a></li>
+        <li><a href="#galeria">Galeria</a></li>
         <li><a href="#nosotros">Nosotros</a></li>
         <li><a href="#contacto">Contacto</a></li>
+
       </ul>
     </nav>
   </header>
@@ -69,7 +79,7 @@
     <button class="slider-btn prev" id="prevBtn" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
     
     <div class="slide-container">
-      <img src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/402001499/original/2a91cf001648ac96b9eca57954fc0a11d2b18a4f/disenare-camisetas-personalizadas-para-sublimacion-completa.png" alt="Termos e Insumos Personalizados" class="slider-img" id="sliderImg">
+      <img src="" alt="" class="slider-img" id="sliderImg">
       <div class="hero-overlay">
         <!-- <h2>Detalles Únicos que Marcan la Diferencia</h2>
         <p>Personalización de alta calidad para empresas y momentos especiales.</p> -->
@@ -105,7 +115,7 @@
       <h3>Envíos Nacionales</h3>
       <p>Acompañamiento e información clara sobre entregas.</p>
     </div>
-  </section>
+  </section> 
 
   <!-- MUESTRARIO DE PRODUCTOS (E-COMMERCE GRID) -->
   <section class="products-section" id="productos">

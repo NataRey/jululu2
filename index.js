@@ -1,9 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+  // LÓGICA DEL PRELOADER
+  const preloader = document.getElementById('preloader');
+  const video = document.getElementById('preloader-video');
+
+  if (preloader && video) {
+    // Deshabilitar scroll mientras corre la antesala
+    document.body.style.overflow = 'hidden';
+
+    const hidePreloader = () => {
+      preloader.classList.add('fade-out');
+      document.body.style.overflow = ''; // Restaurar scroll
+    };
+
+    // 1. Cuando el video termina sus 5 segundos, se oculta
+    video.addEventListener('ended', hidePreloader);
+
+    // 2. Fallback de seguridad por si hay algún retraso en la carga (máximo 6.5 segundos)
+    setTimeout(() => {
+      if (!preloader.classList.contains('fade-out')) {
+        hidePreloader();
+      }
+    }, 6500);
+  }
+
   // Configuración del Slider Banner
   const images = [
-    "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/402001499/original/2a91cf001648ac96b9eca57954fc0a11d2b18a4f/disenare-camisetas-personalizadas-para-sublimacion-completa.png",
-    "https://tse4.mm.bing.net/th/id/OIP.PFWGAQLselK5mJglS11tmAHaE8?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
-    "https://www.que.es/wp-content/uploads/2022/09/img_7f59fc553b4c0f15a590877986dc030e.jpg"
+    "img/Banner_ECO.jpg",
+    "img/amor y amistad.png",
+    "img/kits corporativos.png"
   ];
 
   let currentIndex = 0;

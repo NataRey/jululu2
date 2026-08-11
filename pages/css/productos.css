@@ -1,0 +1,187 @@
+/* ==========================================================================
+   DESBLOQUEO DE STICKY & CONTROLES DE TAMAÑO EN PRODUCTOS
+   ========================================================================== */
+
+/* Asegurar que ningún ancestro bloquee el comportamiento sticky */
+html, body, main {
+  overflow: visible !important;
+}
+
+/* Contenedor principal de la vista de productos */
+.products-layout-container {
+  max-width: 1200px;
+  margin: 140px auto 60px auto; /* Compensación para la barra de navegación fixed */
+  padding: 0 20px;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-start !important; /* Importante: permite la flotación independiente */
+  gap: 30px !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+}
+
+/* SUB-MENÚ LATERAL PEGAJOSO (STICKY) */
+.sidebar-categories {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 130px !important; /* Distancia respecto al borde superior del navegador */
+  width: 240px !important; /* Ancho fijo para evitar que se vea gigante */
+  min-width: 240px !important;
+  flex-shrink: 0 !important;
+  background-color: var(--white);
+  padding: 20px 16px;
+  border-radius: 14px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-border);
+  z-index: 100;
+}
+
+.sidebar-categories h3 {
+  font-size: 1.1rem;
+  color: var(--dark);
+  margin-bottom: 15px;
+  font-weight: 800;
+  border-bottom: 2px solid var(--gray-border);
+  padding-bottom: 8px;
+}
+
+.category-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Botones con tamaño controlado */
+.cat-btn {
+  width: 100%;
+  padding: 10px 14px;
+  border: none;
+  background-color: #f3f4f6;
+  color: var(--dark);
+  font-size: 0.88rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: var(--transition);
+}
+
+.cat-btn:hover {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.cat-btn.active {
+  background-color: var(--primary-dark) !important;
+  color: var(--white) !important;
+  box-shadow: 0 4px 10px rgba(0, 80, 200, 0.2);
+}
+
+/* CONTENIDO PRINCIPAL / CATALOGO */
+.products-content {
+  flex: 1 !important;
+  min-width: 0 !important;
+}
+
+.products-header {
+  margin-bottom: 25px;
+}
+
+.products-header h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--dark);
+}
+
+.products-header p {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+/* Grilla con tarjetas de tamaño controlado */
+.products-catalog-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)) !important;
+  gap: 20px !important;
+}
+
+/* ==========================================================================
+   AJUSTE DE TAMAÑO Y CENTRADO DE IMÁGENES DE PRODUCTOS
+   ========================================================================== */
+
+.catalog-card {
+  background: var(--white);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-border);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column; /* Garantiza que todas las tarjetas mantengan la misma estructura */
+  height: 100%; /* Igualar alturas dentro de la grilla */
+}
+
+.catalog-card .card-image {
+  height: 200px !important;
+  width: 100%;
+  background-color: #ffffff; /* Fondo neutro para las imágenes con transparencia o fondo blanco */
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 10px; /* Margen interno para que el termo no toque los bordes */
+  box-sizing: border-box;
+}
+
+.catalog-card .card-image img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain !important; /* Muestra el termo completo sin recortarlo */
+  display: block;
+}
+
+.catalog-card .card-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Asegura que la información llene el espacio sobrante */
+  padding: 15px;
+}
+
+.catalog-card .product-bottom {
+  margin-top: auto; /* Empuja el botón de cotizar siempre al fondo de la tarjeta */
+}
+
+/* ==========================================================================
+   REGLA DE OCULTAMIENTO PARA EL FILTRO JS
+   ========================================================================== */
+.catalog-card.hide {
+  display: none !important;
+}
+
+/* RESPONSIVE PARA MÓVILES */
+@media (max-width: 868px) {
+  .products-layout-container {
+    flex-direction: column !important;
+    margin-top: 120px;
+  }
+
+  .sidebar-categories {
+    position: relative !important;
+    top: 0 !important;
+    width: 100% !important;
+    min-width: 100% !important;
+  }
+
+  .category-menu {
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .cat-btn {
+    white-space: nowrap;
+  }
+}
