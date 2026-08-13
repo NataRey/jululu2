@@ -881,6 +881,18 @@ HERO SLIDER
   visibility: hidden;
   pointer-events: none;
 }
+
+/* ==========================================================================
+   AJUSTE DE TAMAÑO PARA EL LOGO DEL FOOTER
+   ========================================================================== */
+.footer-col.brand-col img,
+.brand-col img {
+  width: 110px;          /* Ajusta el ancho deseado (puedes probar entre 120px y 150px) */
+  max-width: 100%;       /* Asegura que no se desborde en móviles */
+  height: auto;          /* Mantiene la proporción de la imagen sin distorsionar */
+  display: block;
+  margin-bottom: 12px;   /* Espaciado inferior con respecto al texto descriptivo */
+}
 @media (max-width: 992px) {
   
   /* 1. MOSTRAR EL BOTÓN HAMBURGUESA */
@@ -1036,7 +1048,7 @@ HERO SLIDER
 }
 
 /* AJUSTES PARA PANTALLAS MUY PEQUEÑAS (ANCHO MENOR O IGUAL A 370PX) */
-@media (max-width: 370px) {
+@media (max-width: 360px) {
   /* En pantallas súper pequeñas (menos de 370px) permitimos que la caja siga visible */
   .search-box, 
   .header-actions {
@@ -1056,5 +1068,36 @@ HERO SLIDER
   .header-container {
     padding: 10px 12px;
     justify-content: space-between;
+  }
+
+  /* 1. Centrar texto general e ítems del grid */
+  .main-footer,
+  .footer-container,
+  .footer-col {
+    text-align: center !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* 2. Centrar el logo en la primera columna */
+  .footer-col.brand-col img,
+  .brand-col img {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* 3. Centrar los íconos de redes sociales */
+  .footer-socials {
+    justify-content: center !important;
+    width: 100%;
+  }
+
+  /* 4. Quitar márgenes o alineaciones a la izquierda de la lista */
+  .footer-col ul {
+    padding-left: 0 !important;
+  }
+
+  .footer-col ul li a {
+    text-align: center !important;
   }
 }
