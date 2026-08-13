@@ -968,7 +968,7 @@ HERO SLIDER
 }
 
 @media (max-width: 768px) {
- @media (max-width: 768px) {
+ 
   #preloader {
     position: fixed;
     top: 0;
@@ -984,10 +984,28 @@ HERO SLIDER
     object-fit: cover !important; /* Estira el video para cubrir toda la pantalla */
     object-position: center !important; /* Mantiene el centro del video siempre enfocado */
   }
-}
+
 
   .social-icons {
     display: none;
+  }
+
+  /* Ajustamos la barra superior para distribuir el contenido */
+  .top-bar {
+    justify-content: flex-end;
+    padding: 6px 15px;
+  }
+
+  /* La caja de búsqueda se adapta al espacio disponible */
+  .search-box {
+    display: flex !important;
+    width: 100%;
+    max-width: 220px; /* Ancho cómodo para teléfonos */
+  }
+
+  .search-box input {
+    width: 100% !important;
+    font-size: 0.8rem;
   }
 
   /*
@@ -1019,22 +1037,20 @@ HERO SLIDER
 
 /* AJUSTES PARA PANTALLAS MUY PEQUEÑAS (ANCHO MENOR O IGUAL A 370PX) */
 @media (max-width: 370px) {
-  /* 1. Ocultar la barra de búsqueda para liberar espacio horizontal */
+  /* En pantallas súper pequeñas (menos de 370px) permitimos que la caja siga visible */
   .search-box, 
   .header-actions {
-    display: none !important;
+    display: flex !important;
   }
 
-  /* 2. Reducir ligeramente el tamaño del logo para evitar desbordes */
+  .search-box {
+    max-width: 170px; /* Reducimos ligeramente el ancho para que no desborde */
+  }
+
   .logo-text {
-    font-size: 1.35rem;
+    font-size: 1.2rem;
   }
 
-  /* 3. Asegurar espacio para el botón hamburguesa */
-  .mobile-menu-btn {
-    font-size: 1.3rem;
-    padding: 4px;
-  }
 
   /* 4. Dar una distribución limpia a los elementos restantes */
   .header-container {
