@@ -13,49 +13,55 @@
 </head>
 <body>
 
-  <!-- HEADER Y NAVEGACIÓN -->
   <header class="main-header">
-    <div class="header-container">
-      
-      <!-- Redes Sociales -->
-      <div class="social-icons">
-        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-      </div>
-
-      <!-- Logo Central -->
-      <a href="../../index.html" class="brand-logo">
-        <span class="logo-text">Jululu<span class="highlight">Custom</span></span>
-      </a>
-
-      <!-- Buscador y Carrito/Acciones -->
-      <div class="header-actions">
-        <div class="search-box">
-          <input type="text" placeholder="Buscar producto...">
-          <button aria-label="Buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </div>
-      </div>
-
-      <!-- Botón Menú Móvil -->
-      <button class="mobile-menu-btn" id="mobileMenuBtn">
-        <i class="fa-solid fa-bars"></i>
-      </button>
+  <!-- Top Bar: Redes y Buscador -->
+  <div class="top-bar">
+    <div class="social-icons">
+      <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
     </div>
 
-    <!-- Menú de Navegación Principal -->
-    <nav class="main-nav" id="mainNav">
-      <ul class="nav-list">
-        <li><a href="../../index.html">Inicio</a></li>
-        <li><a href="./productos.html" class="active">Productos</a></li>
-        <li><a href="../../index.html#personales">Personales</a></li>
-        <li><a href="../../index.html#corporativos">Corporativos</a></li>
-        <li><a href="../../index.html#galeria">Galeria</a></li>
-        <li><a href="../../index.html#nosotros">Nosotros</a></li>
-        <li><a href="../../index.html#contacto">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
+    <!-- Cajas del buscador en la top-bar -->
+<div class="search-box">
+  <input type="text" id="searchInput" placeholder="Buscar producto...">
+  <button id="searchBtn" aria-label="Buscar">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+</div>
+  </div>
+
+  <!-- Nav Principal -->
+  <nav class="main-nav" id="mainNav">
+    
+    <!-- 1. CAPA INDEPENDIENTE PARA EL BORDE OSCURO DEL BOLSILLO -->
+    <div class="pocket-border"></div>
+
+    <!-- 2. CAPA INDEPENDIENTE PARA EL AZUL PRINCIPAL DEL BOLSILLO -->
+    <div class="pocket-bg"></div>
+
+    <!-- 3. LOGO COLOCADO SOBRE EL BOLSILLO -->
+    <a href="#" class="brand-logo">
+      <img src="../../img/logos/Logo_Jululu_RGB_1b.png" alt="Jululu Custom">
+    </a> 
+
+    <!-- Enlaces del Menú -->
+    <ul class="nav-list" id="navList">
+  <li><a href="../../index.html" class="active">INICIO</a></li>
+  <li><a href="./pages/html/productos.html">PRODUCTOS</a></li>
+  <li><a href="#personales">PERSONALES</a></li>
+  <li><a href="#corporativos">CORPORATIVOS</a></li>
+  <li><a href="#galeria">GALERIA</a></li>
+  <li><a href="#nosotros">NOSOTROS</a></li>
+  <li><a href="#contacto">CONTACTO</a></li>
+</ul>
+    <!-- BOTÓN HAMBURGUESA (Móviles / Tablets) -->
+  <button class="hamburger-btn" id="hamburgerBtn" aria-label="Abrir menú">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+
+  </nav>
+</header>
 
   <!-- CONTENEDOR PRINCIPAL DE LA VISTA DE PRODUCTOS -->
   <main class="products-layout-container">

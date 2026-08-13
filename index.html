@@ -3,7 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
   <title>Jululu Custom | Regalos Personales y Corporativos</title>
+
+  <!-- Configuración de tus colores personalizados de Jululu -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              primary: '#00b7ff',    /* Azul principal */
+              dark: '#0050c8',       /* Azul oscuro del borde */
+              accent: '#ff00ff',    /* Rosa/Magenta */
+              ahover: '#b0124a',
+              dark: '#1f2937',          /* Gris Oscuro / Texto */
+              lightbg: '#f8f9fa',      /* Fondo Claro Clean */
+              white: '#ffffff',
+              grayborder: '#e5e7eb',
+              whatsappgreen: '#0affa2',
+              shadowsm: '0 2px 8px rgba(0,0,0,0.06)',
+              shadowmd: '0 10px 25px rgba(0,0,0,0.1)',
+              transition: 'all 0.3s ease' 
+            }
+          }
+        }
+      }
+    }
+  </script>
   
   <!-- Fuentes Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,10 +43,6 @@
 </head>
 <body>
 
-  <!-- BARRA ANUNCIO / TOP BAR NO DEJAR -->
-  <!-- <div class="announcement-bar">
-    <span>Regalos corporativos y personalizados que crean experiencias inolvidables</span>
-  </div> -->
 
   <!-- PRELOADER VIDEO INTRO -->
   <div id="preloader">
@@ -29,69 +52,84 @@
     </video>
   </div>
 
-  <!-- HEADER Y NAVEGACIÓN -->
-  <header class="main-header">
-    <div class="header-container">
-      
-      <!-- Redes Sociales -->
-      <div class="social-icons">
-        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-      </div>
-
-      <!-- Logo Central -->
-      <a href="#" class="brand-logo">
-        <span class="logo-text">Jululu<span class="highlight">Custom</span></span>
-      </a>
-
-      <!-- Buscador y Carrito/Acciones -->
-      <div class="header-actions">
-        <div class="search-box">
-          <input type="text" placeholder="Buscar producto...">
-          <button aria-label="Buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </div>
-      </div>
-
-      <!-- Botón Menú Móvil -->
-      <button class="mobile-menu-btn" id="mobileMenuBtn">
-        <i class="fa-solid fa-bars"></i>
-      </button>
+<header class="main-header">
+  <!-- Top Bar: Redes y Buscador -->
+  <div class="top-bar">
+    <div class="social-icons">
+      <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
     </div>
 
-    <!-- Menú de Navegación Principal -->
-    <nav class="main-nav" id="mainNav">
-      <ul class="nav-list">
-        <li><a href="#inicio" class="active">Inicio</a></li>
-        <li><a href="./pages/html/productos.html">Productos</a></li>
-        <li><a href="#personales">Personales</a></li>
-        <li><a href="#corporativos">Corporativos</a></li>
-        <li><a href="#galeria">Galeria</a></li>
-        <li><a href="#nosotros">Nosotros</a></li>
-        <li><a href="#contacto">Contacto</a></li>
+    <!-- Cajas del buscador en la top-bar -->
+<div class="search-box">
+  <input type="text" id="searchInput" placeholder="Buscar producto...">
+  <button id="searchBtn" aria-label="Buscar">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+</div>
+  </div>
 
-      </ul>
-    </nav>
-  </header>
-
-  <!-- HERO SLIDER / BANNER PRINCIPAL -->
-  <section class="hero-slider" id="inicio">
-    <button class="slider-btn prev" id="prevBtn" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+  <!-- Nav Principal -->
+  <nav class="main-nav" id="mainNav">
     
-    <div class="slide-container">
-      <img src="" alt="" class="slider-img" id="sliderImg">
-      <div class="hero-overlay">
-        <!-- <h2>Detalles Únicos que Marcan la Diferencia</h2>
-        <p>Personalización de alta calidad para empresas y momentos especiales.</p> -->
-        <!-- <div class="hero-buttons">
-          <a href="#productos" class="btn btn-primary">Ver Catálogo</a>
-          <a href="https://wa.me/573105178777?text=Hola%2C%20quiero%20cotizar%20un%20pedido%20corporativo" target="_blank" class="btn btn-secondary">Cotizar Corporativos</a>
-        </div> -->
-      </div>
-    </div>
+    <!-- 1. CAPA INDEPENDIENTE PARA EL BORDE OSCURO DEL BOLSILLO -->
+    <div class="pocket-border"></div>
 
-    <button class="slider-btn next" id="nextBtn" aria-label="Siguiente"><i class="fa-solid fa-chevron-right"></i></button>
-  </section>
+    <!-- 2. CAPA INDEPENDIENTE PARA EL AZUL PRINCIPAL DEL BOLSILLO -->
+    <div class="pocket-bg"></div>
+
+    <!-- 3. LOGO COLOCADO SOBRE EL BOLSILLO -->
+    <a href="#" class="brand-logo">
+      <img src="./img/logos/Logo_Jululu_RGB_1b.png" alt="Jululu Custom">
+    </a> 
+
+    <!-- Enlaces del Menú -->
+    <ul class="nav-list" id="navList">
+  <li><a href="#inicio" class="active">INICIO</a></li>
+  <li><a href="./pages/html/productos.html">PRODUCTOS</a></li>
+  <li><a href="#personales">PERSONALES</a></li>
+  <li><a href="#corporativos">CORPORATIVOS</a></li>
+  <li><a href="#galeria">GALERIA</a></li>
+  <li><a href="#nosotros">NOSOTROS</a></li>
+  <li><a href="#contacto">CONTACTO</a></li>
+</ul>
+    <!-- BOTÓN HAMBURGUESA (Móviles / Tablets) -->
+  <button class="hamburger-btn" id="hamburgerBtn" aria-label="Abrir menú">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+
+  </nav>
+</header>
+
+  <!-- HERO SLIDER / BANNER RESPONSIVO CON TAILWIND -->
+<section id="inicio" class="relative w-full mt-[90px] overflow-hidden bg-gray-100">
+  
+  <!-- Botón Anterior -->
+  <button id="prevBtn" aria-label="Anterior" 
+          class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 bg-black/30 hover:bg-black/60 text-white rounded-full flex items-center justify-center transition-all duration-300">
+    <i class="fa-solid fa-chevron-left text-sm md:text-lg"></i>
+  </button>
+
+  <!-- Contenedor de la Imagen con Aspect Ratio Dinámico -->
+  <div class="relative w-full aspect-[16/9] md:aspect-[21/9] max-h-[550px] overflow-hidden flex items-center justify-center">
+    
+    <img id="sliderImg" 
+         src="./img/amor y amistad.png" 
+         alt="Promoción Amor y Amistad" 
+         class="w-full h-full object-cover object-center transition-opacity duration-500">
+
+    <!-- Overlay Opcional (Si deseas texto o sombras sobre el banner) -->
+    <div class="absolute inset-0 bg-black/10 pointer-events-none"></div>
+  </div>
+
+  <!-- Botón Siguiente -->
+  <button id="nextBtn" aria-label="Siguiente" 
+          class="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 bg-black/30 hover:bg-black/60 text-white rounded-full flex items-center justify-center transition-all duration-300">
+    <i class="fa-solid fa-chevron-right text-sm md:text-lg"></i>
+  </button>
+
+</section>
 
   <!-- BENEFICIOS / PROPUESTA DE VALOR -->
   <section class="features-section">
@@ -124,7 +162,7 @@
       <p>Elige tu producto o contáctanos para una propuesta a medida</p>
     </div>
 
-    <div class="products-grid">
+    <div class="products-grid" id="productsGrid" >
       <!-- Producto 1 -->
       <div class="product-card">
         <div class="product-badge">Top Ventas</div>
@@ -133,7 +171,7 @@
         </div>
         <div class="product-info">
           <span class="category">Personal / Corporativo</span>
-          <h3>Termo Térmico Personalizado</h3>
+          <h3 class="product-title">Termo Térmico Personalizado</h3>
           <div class="rating">
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
@@ -158,7 +196,7 @@
         </div>
         <div class="product-info">
           <span class="category">Moda & Branding</span>
-          <h3>Camisetas Sublimadas Premium</h3>
+          <h3 class="product-title">Camisetas Sublimadas Premium</h3>
           <div class="rating">
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
@@ -184,7 +222,7 @@
         </div>
         <div class="product-info">
           <span class="category">Corporativo</span>
-          <h3>Kit Welcome Box Empresa</h3>
+          <h3 class="product-title">Kit Welcome Box Empresa</h3>
           <div class="rating">
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
@@ -202,6 +240,7 @@
         </div>
       </div>
     </div>
+
   </section>
 
   <!-- SECCIÓN SOBRE NOSOTROS -->
@@ -233,7 +272,7 @@
   <footer class="main-footer" id="contacto">
     <div class="footer-container">
       <div class="footer-col brand-col">
-        <h3>Jululu<span>Custom</span></h3>
+        <img src="./img/logos/Logo_Jululu_RGB_2a.png" alt="">
         <p>Expertos en personalización de marca y detalles inolvidables.</p>
         <div class="footer-socials">
           <a href="#"><i class="fa-brands fa-instagram"></i></a>

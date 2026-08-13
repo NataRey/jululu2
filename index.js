@@ -3,11 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // LÓGICA DEL PRELOADER
   const preloader = document.getElementById('preloader');
   const video = document.getElementById('preloader-video');
-
   if (preloader && video) {
-    // Deshabilitar scroll mientras corre la antesala
     document.body.style.overflow = 'hidden';
-
     const hidePreloader = () => {
       preloader.classList.add('fade-out');
       document.body.style.overflow = ''; // Restaurar scroll
@@ -15,14 +12,61 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 1. Cuando el video termina sus 5 segundos, se oculta
     video.addEventListener('ended', hidePreloader);
-
-    // 2. Fallback de seguridad por si hay algún retraso en la carga (máximo 6.5 segundos)
     setTimeout(() => {
       if (!preloader.classList.contains('fade-out')) {
         hidePreloader();
       }
     }, 6500);
   }
+
+  /**funcion boton busqueda  */
+  const searchInput = document.getElementById('searchInput');
+  const searchBtn = document.getElementById('searchBtn');
+  const productCards = document.querySelectorAll('.product-card');
+
+  // Función principal de filtrado
+  function filterProducts() {
+    const query = searchInput.value.toLowerCase().trim();
+
+    productCards.forEach(card => {
+      // Obtiene el título y la descripción dentro de la tarjeta
+      const title = card.querySelector('h3') ? card.querySelector('h3').textContent.toLowerCase() : '';
+      const description = card.querySelector('.description') ? card.querySelector('.description').textContent.toLowerCase() : '';
+
+      // Si coincide con el título o la descripción, se muestra; de lo contrario, se oculta
+      if (title.includes(query) || description.includes(query)) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    // Desplaza suavemente la pantalla hacia la sección de productos si hay una búsqueda activa
+    if (query !== '') {
+      const productsSection = document.getElementById('productos');
+      if (productsSection) {
+        productsSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }
+
+  // Evento 1: Al hacer clic en el botón de la lupa
+  if (searchBtn) {
+    searchBtn.addEventListener('click', filterProducts);
+  }
+
+  // Evento 2: Búsqueda en tiempo real mientras se escribe
+  if (searchInput) {
+    searchInput.addEventListener('input', filterProducts);
+
+    // Evento 3: Al presionar la tecla 'Enter' dentro del input
+    searchInput.addEventListener('keyup', (e) => {
+      if (e.key === 'Enter') {
+        filterProducts();
+      }
+    });
+  }
+  /**fin funcion boton busqueda  */
 
   // Configuración del Slider Banner
   const images = [
@@ -65,12 +109,19 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Menú Hamburguesa Móvil
-  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-  const mainNav = document.getElementById('mainNav');
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const navList = document.getElementById('navList');
 
-  if (mobileMenuBtn && mainNav) {
-    mobileMenuBtn.addEventListener('click', () => {
-      mainNav.classList.toggle('active');
+  if (hamburgerBtn && navList) {
+    hamburgerBtn.addEventListener('click', () => {
+      navList.classList.toggle('show');
+
+      // Opcional: Cambiar icono de hamburguesa a una "X" al abrir
+      const icon = hamburgerBtn.querySelector('i');
+      if (icon) {
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-xmark');
+      }
     });
   }
 });

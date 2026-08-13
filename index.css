@@ -46,134 +46,294 @@ body {
   font-weight: 500;
 }
 
-/* HEADER Y BARRA DE NAVEGACIÓN */
+/*inicio nav*/
+/* ==========================================================================
+   ESTRUCTURA DE CAPAS INDEPENDIENTES PARA EL BOLSILLO
+   ========================================================================== */
+
 .main-header {
-  background-color: var(--white);
-  box-shadow: var(--shadow-sm);
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
+  background-color: transparent;
 }
 
-.header-container {
-  max-width: 1200px;
-  margin: 0 auto;
+/* TOP BAR BLANCA */
+.top-bar {
+  background-color: #ffffff;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
-  padding: 15px 20px;
+  padding: 6px 30px;
+  height: 45px;
+  position: relative;
+  z-index: 10;
 }
 
-/* Redes Sociales Header */
 .social-icons {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-100%);
   display: flex;
-  gap: 10px;
+  gap: 20px;
 }
 
-.social-icons a {
-  background-color: #f3f4f6;
-  color: var(--accent);
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  font-size: 14px;
-  transition: var(--transition);
-}
-
-.social-icons a:hover {
+.social-icons a{
   background-color: var(--accent);
-  color: var(--white);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  color: var(--light-bg);
 }
 
-/* Logo */
-.brand-logo {
-  text-decoration: none;
-}
-
-.logo-text {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: var(--dark);
-  letter-spacing: -0.5px;
-}
-
-.logo-text .highlight {
-  color: var(--accent);
-}
-
-/* Buscador */
 .search-box {
   display: flex;
   align-items: center;
-  border: 1px solid var(--gray-border);
+  border: 1px solid #e5e7eb;
   border-radius: 20px;
-  overflow: hidden;
-  padding: 2px 5px 2px 15px;
-  background-color: #f9fafb;
+  padding: 2px 10px;
+  background-color: #ffffff;
 }
 
 .search-box input {
   border: none;
   outline: none;
-  background: transparent;
-  font-size: 0.9rem;
-  width: 160px;
+  font-size: 0.8rem;
+  width: 150px;
 }
 
-.search-box button {
-  background: none;
-  border: none;
-  color: var(--primary-dark);
-  cursor: pointer;
-  padding: 6px 10px;
-}
-
-.mobile-menu-btn {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  color: var(--dark);
-  cursor: pointer;
-}
-
-/* Menú Principal */
+/* BARRA AZUL BASE */
 .main-nav {
-  background-color: var(--primary);
+  position: relative;
+  height: 52px;
+  background-color: var(--primary, #00b7ff);
+  border-top: 8px solid var(--primary-dark, #0050c8); /* Borde superior para toda la barra recta */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 30px;
+  overflow: visible !important; /* IMPORTANTE: Permite que el bolsillo sobresalga */
+  border-radius: 3px;
+}
+/* ==========================================================================
+   AJUS-7 DE PRECISIÓN DE CAPAS PARA EL BOLSILLO
+   ========================================================================== */
+
+/* 1. CAPA DEL BORDE AZUL OSCURO (Apertura suave y punta profunda) */
+.pocket-border {
+  position: absolute;
+  top: -6px;
+  left: 0;
+  width: 520px;       /* Ampliamos el ancho total del bolsillo */
+  height: 80px;       /* Altura total para la caida */
+  background-color: var(--primary-dark, #0050c8);
+  z-index: 1;
+
+  /* 
+    Puntos:
+    0% 0%: Arriba a la izquierda (deja ver el fondo blanco arriba)
+    0% 25%: Baja por el borde lateral
+    35% 100%: PUNTA MÁS PROFUNDA EN EL EJE Y (Bolsillo)
+    100% 0%: Subida diagonal hacia la barra azul recta
+  */
+  clip-path: polygon(
+    0% 0%,
+    0% 20%,
+    78% 85%,
+    65% 68%,
+    155% 10%
+  );
+  -webkit-clip-path: polygon(
+    0% 0%,
+    0% 20%,
+    18% 85%,
+    35% 68%,
+    100% 0%
+  );
 }
 
+/* 2. CAPA FRONTAL AZUL CLARO (Desfasada para revelar el borde oscuro) */
+.pocket-bg {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 512px;
+  height: 75px;
+  background-color: white;
+  z-index: 2;
+  
+
+  /* Deja expuesto el borde oscuro abajo y en la diagonal */
+  clip-path: polygon(
+    0% 0%,
+    0% 15%,
+    17% 68%,
+    17% 68%,
+    100% 0%
+  );
+  -webkit-clip-path: polygon(
+    0% 0%,
+    0% 20%,
+    17% 68%,
+    17% 68%,
+    100% 0%
+  );
+}
+
+/* POSICIONAMIENTO DEL LOGO DENTRO DEL BOLSILLO */
+.brand-logo {
+  position: absolute;
+  left: 45px;          /* Lo ubica en la zona más ancha del bolsillo */
+  top: -78px;         /* Ajusta la altura para que repose sobre el área azul */
+  z-index: 10;        /* Mantiene el logo por encima de todas las capas */
+  width: 190px;       /* Tamaño proporcional para no saturar el espacio */
+  display: block;
+}
+
+.brand-logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* MENÚ DE NAVEGACIÓN */
 .nav-list {
+  position: relative;
+  z-index: 5;
   display: flex;
-  justify-content: center;
+  align-items: center;
+  gap: 12px;
   list-style: none;
-  max-width: 1200px;
-  margin: 0 auto;
+  margin: 0;
 }
 
 .nav-list a {
-  display: block;
-  padding: 12px 12px;
-  color: var(--white);
+  color: #ffffff;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.85rem;
-  text-transform: uppercase;
   letter-spacing: 0.5px;
-  transition: var(--transition);
+  text-transform: uppercase;
+  padding: 4px 1px;
+  transition: background 0.3s ease;
+  border-radius: 4px;
 }
 
 .nav-list a:hover,
 .nav-list a.active {
-  background-color: var(--primary-dark);
+  background-color: var(--primary-dark, #0050c8);
 }
 
-/* HERO SLIDER */
+/* MARGEN DEL BANNER */
+.hero-slider {
+  margin-top: 85px;
+}
+
+/*fin nav*/
+
+/*MENU HAMBURGUESA */
+
+/* ==========================================================================
+   ESTILOS BASE DEL BOTÓN HAMBURGUESA (Oculto en Desktop)
+   ========================================================================== */
+.hamburger-btn {
+  display: none; /* Por defecto oculto en pantallas grandes */
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 10;
+  padding: 5px 10px;
+}
+
+/* ==========================================================================
+   MEDIA QUERIES (RESPONSIVE) - De 992px hacia abajo
+   ========================================================================== */
+@media (max-width: 992px) {
+  
+  /* 1. MOSTRAR EL BOTÓN HAMBURGUESA */
+  .hamburger-btn {
+    display: block;
+  }
+
+  /* 2. REORGANIZAR EL MENÚ DESPLEGABLE */
+  .nav-list {
+    position: absolute;
+    top: 100%; /* Aparece justo debajo del nav */
+    right: 0;
+    width: 250px;
+    background-color: var(--primary-dark, #0050c8);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 20px;
+    gap: 15px;
+    border-radius: 0 0 0 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    
+    /* Estado inicial: Oculto */
+    display: none;
+  }
+
+  /* Clase que activa JavaScript al dar clic */
+  .nav-list.show {
+    display: flex;
+  }
+
+  .nav-list a {
+    width: 100%;
+    display: block;
+    padding: 8px 12px;
+  }
+
+  /* 3. REAJUSTAR EL BOLSILLO PARA PANTALLAS PEQUEÑAS */
+  .pocket-border {
+    width: 260px; /* Reducimos el ancho para que no choque con la hamburguesa */
+    height: 70px;
+    clip-path: polygon(
+      0% 0%,
+      0% 20%,
+      22% 75%,
+      100% 0%
+    );
+    -webkit-clip-path: polygon(
+      0% 0%,
+      0% 20%,
+      22% 75%,
+      100% 0%
+    );
+  }
+
+  .pocket-bg {
+    width: 255px;
+    height: 66px;
+    clip-path: polygon(
+      0% 0%,
+      0% 15%,
+      22% 70%,
+      100% 0%
+    );
+    -webkit-clip-path: polygon(
+      0% 0%,
+      0% 15%,
+      22% 70%,
+      100% 0%
+    );
+  }
+
+  /* Reajuste del logo en móvil */
+  .brand-logo {
+    width: 110px;
+    left: 10px;
+    top: -22px;
+  }
+}
+
+HERO SLIDER
 /* ==========================================================================
    AJUSTE Y ENCUADRE DE IMÁGENES DEL SLIDER BANNER
    ========================================================================== */
@@ -195,9 +355,8 @@ body {
   width: 100% !important;
   height: 100% !important;
   
-  /* Muestra la imagen 100% COMPLETA sin recortar bordes ni textos */
+  /*Muestra la imagen 100% COMPLETA sin recortar bordes ni textos*/ 
   object-fit: contain !important; 
-  
   object-position: center !important;
   display: block !important;
 }
@@ -714,20 +873,91 @@ body {
   max-height: 100%;
 }
 
-/* Reglas específicas para pantallas móviles pequeñas (Media Query) */
-@media (max-width: 768px) {
-  #preloader-video {
-    /* Ajusta el ancho al 90% del ancho del dispositivo para que el video mantenga margen */
-    width: 90%;
-    height: auto;
-  }
-}
+
 
 /* Clase para ocultar el preloader */
 #preloader.fade-out {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+}
+@media (max-width: 992px) {
+  
+  /* 1. MOSTRAR EL BOTÓN HAMBURGUESA */
+  .hamburger-btn {
+    display: block;
+  }
+
+  /* 2. REORGANIZAR EL MENÚ DESPLEGABLE */
+  .nav-list {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 250px;
+    background-color: rgba(0, 80, 200, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 20px;
+    gap: 15px;
+    border-radius: 0 0 0 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+    display: none;
+  }
+
+  .nav-list.show {
+    display: flex;
+  }
+
+  .nav-list a {
+    width: 100%;
+    display: block;
+    padding: 8px 12px;
+  }
+
+  /* 3. REAJUSTAR EL BOLSILLO PARA PANTALLAS PEQUEÑAS */
+  .pocket-border {
+    width: 280px;
+    height: 75px;
+    clip-path: polygon(
+      0% 0%,
+      0% 20%,
+      22% 75%,
+      100% 0%
+    );
+    -webkit-clip-path: polygon(
+      0% 0%,
+      0% 20%,
+      22% 75%,
+      100% 0%
+    );
+  }
+
+  .pocket-bg {
+    width: 275px;
+    height: 70px;
+    clip-path: polygon(
+      0% 0%,
+      0% 15%,
+      22% 70%,
+      100% 0%
+    );
+    -webkit-clip-path: polygon(
+      0% 0%,
+      0% 15%,
+      22% 70%,
+      100% 0%
+    );
+  }
+
+  /* 4. POSICIONAMIENTO Y ESCALA DEL LOGO EN PANTALLAS PEQUEÑAS */
+  .brand-logo {
+    width: 120px;   /* Reducimos el ancho para que entre en la cuna */
+    left: 25px;     /* Desplazamos a la derecha dentro del espacio blanco */
+    top: -50px;     /* Subimos la posición vertical para centrarlo */
+  }
 }
 
 /* MEDIA QUERIES (RESPONSIVE) */
@@ -738,33 +968,35 @@ body {
 }
 
 @media (max-width: 768px) {
+ @media (max-width: 768px) {
+  #preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100dvh; /* Cubre el alto total del navegador móvil */
+    background-color: #000; /* O el color principal de tu marca */
+  }
+
+  #preloader-video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Estira el video para cubrir toda la pantalla */
+    object-position: center !important; /* Mantiene el centro del video siempre enfocado */
+  }
+}
+
   .social-icons {
     display: none;
   }
 
-  .mobile-menu-btn {
-    display: block;
-  }
-
+  /*
+    SE ELIMINÓ: .main-nav { display: none; }
+    AHORA EL NAV SE MANTIENE VISIBLE PARA QUE LA HAMBURGUESA Y EL BOLSILLO FUNCIONEN
+  */
   .main-nav {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-  }
-
-  .main-nav.active {
-    display: block;
-  }
-
-  .nav-list {
-    flex-direction: column;
-  }
-
-  .nav-list a {
-    text-align: center;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    display: flex !important;
+    position: relative;
   }
 
   .hero-slider {
