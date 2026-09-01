@@ -1,10 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Chewy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Chewy&display=swap');
+
 /* RESET & VARIABLES GENERALES */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  /* font-family: 'Plus Jakarta Sans', sans-serif; */
 }
+
+
 
 :root {
   --primary: #00b7ff;       /* Azul Cian Moderno */
@@ -489,6 +494,8 @@ HERO SLIDER
   gap: 30px !important;
 }
 
+
+
 /* Tarjetas individuales dentro del bloque */
 .features-section .feature-card {
   background-color: rgba(255, 255, 255, 0.08) !important;
@@ -681,6 +688,9 @@ HERO SLIDER
   background-color: var(--primary-dark);
   color: white;
   padding: 60px 20px;
+}
+h2{
+  font-family:"Chewy", system-ui; ;
 }
 
 .about-container {

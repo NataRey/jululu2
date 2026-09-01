@@ -3,36 +3,36 @@ document.addEventListener("DOMContentLoaded", () => {
   const productCards = document.querySelectorAll(".catalog-card");
   const searchInput = document.getElementById("searchInput");
   const searchBtn = document.getElementById("searchBtn");
+  const carousels = document.querySelectorAll(".mini-carousel");
 
   let currentCategory = "all";
   let currentSearchQuery = "";
+
+  // Cachear el texto de las tarjetas para evitar leer el DOM en cada tecla (Mejora de Rendimiento)
+  const cachedCards = Array.from(productCards).map((card) => ({
+    element: card,
+    categories: (card.getAttribute("data-category") || "")
+      .trim()
+      .toLowerCase()
+      .split(/\s+/),
+    text: card.textContent.toLowerCase(),
+  }));
 
   // ==========================================================================
   // FUNCIÓN DE FILTRADO
   // ==========================================================================
   function applyCombinedFilters() {
-    productCards.forEach((card) => {
+    cachedCards.forEach(({ element, categories, text }) => {
       // 1. Validar Categoría
-      const rawCategories = card.getAttribute("data-category");
-      let matchesCategory = false;
+      const matchesCategory =
+        currentCategory === "all" || categories.includes(currentCategory);
 
-      if (currentCategory === "all") {
-        matchesCategory = true;
-      } else if (rawCategories) {
-        const categoriesList = rawCategories.trim().toLowerCase().split(/\s+/);
-        matchesCategory = categoriesList.includes(currentCategory);
-      }
-
-      // 2. Validar Búsqueda por Texto (Lee TODO el texto interno de la tarjeta)
-      const cardText = card.textContent.toLowerCase();
-      const matchesSearch = currentSearchQuery === "" || cardText.includes(currentSearchQuery);
+      // 2. Validar Búsqueda por Texto
+      const matchesSearch =
+        currentSearchQuery === "" || text.includes(currentSearchQuery);
 
       // 3. Mostrar u Ocultar
-      if (matchesCategory && matchesSearch) {
-        card.classList.remove("hide");
-      } else {
-        card.classList.add("hide");
-      }
+      element.classList.toggle("hide", !(matchesCategory && matchesSearch));
     });
   }
 
@@ -44,50 +44,82 @@ document.addEventListener("DOMContentLoaded", () => {
       filterButtons.forEach((btn) => btn.classList.remove("active"));
       button.classList.add("active");
 
-      // Si el usuario da clic a una categoría, obtenemos su valor
       const categoryValue = button.getAttribute("data-category");
       currentCategory = categoryValue ? categoryValue.trim().toLowerCase() : "all";
-      
+
       applyCombinedFilters();
     });
   });
 
   // ==========================================================================
-  // 2. EVENTO DEL BUSCADOR (LUPA)
+  // 2. EVENTO DEL BUSCADOR
   // ==========================================================================
   function handleSearch() {
-    if (searchInput) {
-      currentSearchQuery = searchInput.value.toLowerCase().trim();
+    if (!searchInput) return;
 
-      // SI EL USUARIO ESCRIBE ALGO, ACTIVAMOS EL BOTÓN "TODO" AUTOMÁTICAMENTE
-      if (currentSearchQuery !== "") {
-        currentCategory = "all";
-        
-        filterButtons.forEach((btn) => {
-          const cat = btn.getAttribute("data-category");
-          if (cat && cat.trim().toLowerCase() === "all") {
-            btn.classList.add("active");
-          } else {
-            btn.classList.remove("active");
-          }
-        });
-      }
+    currentSearchQuery = searchInput.value.toLowerCase().trim();
 
-      applyCombinedFilters();
+    // Si el usuario escribe algo, cambiamos la pestaña activa visualmente a "Todos"
+    if (currentSearchQuery !== "") {
+      currentCategory = "all";
+
+      filterButtons.forEach((btn) => {
+        const cat = btn.getAttribute("data-category");
+        const isAll = cat && cat.trim().toLowerCase() === "all";
+        btn.classList.toggle("active", isAll);
+      });
     }
+
+    applyCombinedFilters();
   }
 
   if (searchInput) {
+    // Usamos 'input' únicamente, ya que cubre escribir, pegar y borrar con backspace.
     searchInput.addEventListener("input", handleSearch);
-
-    searchInput.addEventListener("keyup", (e) => {
-      if (e.key === "Enter") {
-        handleSearch();
-      }
-    });
   }
 
   if (searchBtn) {
     searchBtn.addEventListener("click", handleSearch);
   }
+
+  // ==========================================================================
+  // 3. CARRUSEL DE IMÁGENES
+  // ==========================================================================
+  carousels.forEach((carousel) => {
+    const track = carousel.querySelector(".carousel-track");
+    if (!track) return;
+
+    const slides = Array.from(track.children);
+    if (slides.length === 0) return;
+
+    const nextBtn = carousel.querySelector(".next-btn");
+    const prevBtn = carousel.querySelector(".prev-btn");
+    const dots = carousel.querySelectorAll(".dot");
+    let currentIndex = 0;
+
+    const updateCarousel = (index) => {
+      track.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach((dot, i) => dot.classList.toggle("active", i === index));
+      currentIndex = index;
+    };
+
+    nextBtn?.addEventListener("click", (e) => {
+      e.preventDefault();
+      const nextIndex = (currentIndex + 1) % slides.length;
+      updateCarousel(nextIndex);
+    });
+
+    prevBtn?.addEventListener("click", (e) => {
+      e.preventDefault();
+      const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+      updateCarousel(prevIndex);
+    });
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener("click", (e) => {
+        e.preventDefault();
+        updateCarousel(i);
+      });
+    });
+  });
 });
