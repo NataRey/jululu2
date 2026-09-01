@@ -1,22 +1,48 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // LÓGICA DEL PRELOADER
+  // LÓGICA DEL PRELOADER (Solo en primera visita o F5)
   const preloader = document.getElementById('preloader');
   const video = document.getElementById('preloader-video');
-  if (preloader && video) {
-    document.body.style.overflow = 'hidden';
-    const hidePreloader = () => {
-      preloader.classList.add('fade-out');
-      document.body.style.overflow = ''; // Restaurar scroll
-    };
 
-    // 1. Cuando el video termina sus 5 segundos, se oculta
-    video.addEventListener('ended', hidePreloader);
-    setTimeout(() => {
-      if (!preloader.classList.contains('fade-out')) {
-        hidePreloader();
-      }
-    }, 6500);
+  if (preloader && video) {
+    // 1. Detectar si la página fue recargada manualmente (F5)
+    const navEntries = performance.getEntriesByType('navigation');
+    const isReload = navEntries.length > 0 && navEntries[0].type === 'reload';
+
+    if (isReload) {
+      sessionStorage.removeItem('siteVisited');
+    }
+
+    // 2. Comprobar si el usuario ya visitó el sitio en esta pestaña
+    const hasVisited = sessionStorage.getItem('siteVisited');
+
+    if (hasVisited) {
+      // Si ya navegó antes, ocultar el preloader de inmediato
+      preloader.style.display = 'none';
+      document.body.style.overflow = '';
+    } else {
+      // Primera visita: Guardar marca y reproducir el video normal
+      sessionStorage.setItem('siteVisited', 'true');
+      document.body.style.overflow = 'hidden';
+
+      const hidePreloader = () => {
+        preloader.classList.add('fade-out');
+        document.body.style.overflow = ''; // Restaurar scroll
+        setTimeout(() => {
+          preloader.style.display = 'none';
+        }, 500);
+      };
+
+      // Cuando el video termina sus 5 segundos, se oculta
+      video.addEventListener('ended', hidePreloader);
+
+      // Respaldo por si el video falla al reproducirse
+      setTimeout(() => {
+        if (!preloader.classList.contains('fade-out')) {
+          hidePreloader();
+        }
+      }, 6500);
+    }
   }
 
   /**funcion boton busqueda  */
