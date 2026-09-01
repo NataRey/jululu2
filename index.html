@@ -105,31 +105,26 @@
   </nav>
 </header>
 
-  <!-- HERO SLIDER / BANNER RESPONSIVO CON TAILWIND -->
-<section id="inicio" class="relative w-full mt-[90px] overflow-hidden bg-gray-100">
+<section id="inicio" class="relative w-full mt-[97px] md:mt-[100px] overflow-hidden bg-gray-900">
   
-  <!-- Botón Anterior -->
-  <button id="prevBtn" aria-label="Anterior" 
-          class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 bg-black/30 hover:bg-black/60 text-white rounded-full flex items-center justify-center transition-all duration-300">
-    <i class="fa-solid fa-chevron-left text-sm md:text-lg"></i>
+  <button id="prevBtn" type="button" aria-label="Anterior" 
+          class="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 w-8 h-8 md:w-11 md:h-11 bg-black/40 hover:bg-black/70 text-white rounded-full flex items-center justify-center transition-all duration-300">
+    <i class="fa-solid fa-chevron-left text-xs md:text-base"></i>
   </button>
 
-  <!-- Contenedor de la Imagen con Aspect Ratio Dinámico -->
-  <div class="relative w-full aspect-[16/9] md:aspect-[21/9] max-h-[550px] overflow-hidden flex items-center justify-center">
+  <div class="relative w-full aspect-[4/3] sm:aspect-[16/9] md:aspect-[21/9] max-h-[500px] overflow-hidden flex items-center justify-center bg-gray-900">
     
     <img id="sliderImg" 
          src="./img/amor y amistad.png" 
          alt="Promoción Amor y Amistad" 
-         class="w-full h-full object-cover object-center transition-opacity duration-500">
+         class="w-full h-full object-contain object-center transition-opacity duration-300">
 
-    <!-- Overlay Opcional (Si deseas texto o sombras sobre el banner) -->
     <div class="absolute inset-0 bg-black/10 pointer-events-none"></div>
   </div>
 
-  <!-- Botón Siguiente -->
-  <button id="nextBtn" aria-label="Siguiente" 
-          class="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 bg-black/30 hover:bg-black/60 text-white rounded-full flex items-center justify-center transition-all duration-300">
-    <i class="fa-solid fa-chevron-right text-sm md:text-lg"></i>
+  <button id="nextBtn" type="button" aria-label="Siguiente" 
+          class="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 w-8 h-8 md:w-11 md:h-11 bg-black/40 hover:bg-black/70 text-white rounded-full flex items-center justify-center transition-all duration-300">
+    <i class="fa-solid fa-chevron-right text-xs md:text-base"></i>
   </button>
 
 </section>
