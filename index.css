@@ -377,7 +377,6 @@ body {
 .containercarrusel {
   margin-top: 70px; /* Separación de la navbar en móvil */
   width: 100%;
-  max-width: 1350px;
   margin-left: auto;
   margin-right: auto;
   overflow: hidden;
@@ -386,7 +385,7 @@ body {
 .containercarrusel .carousel-item img {
   width: 100%;
   height: auto; /* Permite que la altura escale proporcionalmente */
-  max-height: 500px; /* Limite opcional para que no sea gigante en PC */
+  max-height: 675px; /* Limite opcional para que no sea gigante en PC */
   object-fit: contain; /* Muestra el 100% de la imagen sin recortar bordes */
   object-position: center;
 }
@@ -417,6 +416,15 @@ body {
   }
 }
 
+/* Monitores grandes, TVs y pantallas Ultra-Wide */
+@media (min-width: 1200px) {
+  .containercarrusel {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
 
 
 /* ==========================================================================
