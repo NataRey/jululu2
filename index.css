@@ -508,10 +508,11 @@ body {
 /* Responsivo para celulares */
 @media (max-width: 768px) {
   .features-section {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 1fr 1fr ;
     padding: 40px 20px !important;
     gap: 20px !important;
   }
+ 
 }
 
 /* PRODUCTOS GRID */
@@ -634,6 +635,12 @@ body {
 
 .btn-buy:hover {
   background-color: #1eb857;
+}
+
+@media (max-width: 768px) {
+  .product-card {
+    height: 350px;
+  }
 }
 
 /* ==========================================
@@ -818,6 +825,48 @@ body {
   font-size: 0.85rem;
 }
 
+/* ==========================================================================
+   AJUSTE DE TAMAÑO PARA EL LOGO DEL FOOTER
+   ========================================================================== */
+.footer-col.brand-col img,
+.brand-col img {
+  width: 110px;          /* Ajusta el ancho deseado (puedes probar entre 120px y 150px) */
+  max-width: 100%;       /* Asegura que no se desborde en móviles */
+  height: auto;          /* Mantiene la proporción de la imagen sin distorsionar */
+  display: block;
+  margin-bottom: 12px;   /* Espaciado inferior con respecto al texto descriptivo */
+ 
+}
+
+/* Estilos para pantallas móviles (320px a 575px) */
+@media screen and (min-width: 320px) and (max-width: 575px) {
+  .main-footer {
+    text-align: center;
+  }
+
+  .footer-container {
+    /* Forzar 1 sola columna para centrar mejor el grid */
+    grid-template-columns: 1fr; 
+  }
+
+  /* Centra los iconos de redes sociales */
+  .footer-socials {
+    justify-content: center;
+  }
+
+  /* Centra la imagen del logo */
+  .footer-col.brand-col img,
+  .brand-col img {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-col ul {
+    padding: 0;
+    margin: 0;
+  }
+}
+
 /* BOTÓN FLOTANTE WHATSAPP */
 .whatsapp-float {
   position: fixed;
@@ -898,17 +947,7 @@ body {
   pointer-events: none;
 }
 
-/* ==========================================================================
-   AJUSTE DE TAMAÑO PARA EL LOGO DEL FOOTER
-   ========================================================================== */
-.footer-col.brand-col img,
-.brand-col img {
-  width: 110px;          /* Ajusta el ancho deseado (puedes probar entre 120px y 150px) */
-  max-width: 100%;       /* Asegura que no se desborde en móviles */
-  height: auto;          /* Mantiene la proporción de la imagen sin distorsionar */
-  display: block;
-  margin-bottom: 12px;   /* Espaciado inferior con respecto al texto descriptivo */
-}
+
 @media (max-width: 992px) {
   
   /* 1. MOSTRAR EL BOTÓN HAMBURGUESA */
