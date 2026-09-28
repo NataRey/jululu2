@@ -322,3 +322,122 @@ html, body, main {
     white-space: nowrap;
   }
 }
+
+/* Estilos para los colores interactivos */
+.product-colors {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 8px 0 12px 0;
+  align-items: center;
+}
+
+.color-btn {
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: transform 0.2s ease;
+  user-select: none;
+  opacity: 0.6; /* Un poco transparentes los que no están activos */
+}
+
+.color-btn:hover {
+  transform: scale(1.2);
+  opacity: 0.9;
+}
+
+.color-btn.active {
+  transform: scale(1.2);
+  opacity: 1; /* El activo resalta al 100% */
+  border-bottom: 2px solid #333; /* Una rayita sutil debajo del color seleccionado */
+  padding-bottom: 2px;
+}
+
+/* Círculo personalizado para el color rosado pálido */
+.color-btn.pink-dot {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #EAA29C; /* Color rosa pálido exacto del termo */
+  vertical-align: middle;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1); /* Borde sutil para darle acabado */
+}
+
+/* Ajuste para mantener la alineación cuando esté activo */
+.color-btn.pink-dot.active {
+  border-bottom: none; /* Quitamos la barra y resaltamos con sombra/escala */
+  box-shadow: 0 0 0 2px #333, inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+/* Estilo base para los círculos personalizados por CSS */
+.color-btn.custom-dot {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  vertical-align: middle;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.12); /* Borde sutil */
+}
+
+/* Color Aqua / Turquesa (Imagen 1) */
+.color-btn.cyan-dot {
+  background-color: #5FE0DD;
+}
+
+/* Color Uva / Magenta oscuro (Imagen 2) */
+.color-btn.magenta-dot {
+  background-color: #9B3E63;
+}
+
+/* Estado activo para los círculos personalizados */
+.color-btn.custom-dot.active {
+  border-bottom: none;
+  box-shadow: 0 0 0 2px #333, inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+/* Verde Lima / Neón (Imagen 1) */
+.color-btn.lime-dot {
+  background-color: #9CD700;
+}
+
+/* Fucsia / Rosa Neón (Imagen 2) */
+.color-btn.fuchsia-dot {
+  background-color: #ED2B93;
+}
+
+
+/*transition*/
+/* =========================================================
+   SOLUCIÓN DEFINITIVA DE TAMAÑO Y POSICIÓN PARA MODO FADE
+   ========================================================= */
+
+/* 1. La pista cancela el movimiento de lado a lado */
+.carousel-track.fade-mode {
+  position: relative !important;
+  display: block !important;
+  transform: none !important;
+  width: 100% !important;
+}
+
+/* 2. Todas las imágenes se preparan para desvanecerse */
+.carousel-track.fade-mode img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  z-index: 1;
+}
+
+/* 3. La primera imagen marca la altura REAL de la tarjeta para no empujar la información */
+.carousel-track.fade-mode img:first-child {
+  position: relative;
+}
+
+/* 4. La imagen seleccionada se muestra al frente con opacidad 1 */
+.carousel-track.fade-mode img.active {
+  opacity: 1;
+  z-index: 2;
+}

@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.getElementById("searchInput");
   const searchBtn = document.getElementById("searchBtn");
   const carousels = document.querySelectorAll(".mini-carousel");
+  const colorButtons = document.querySelectorAll('.color-btn');
 
   let currentCategory = "all";
   let currentSearchQuery = "";
@@ -81,6 +82,91 @@ document.addEventListener("DOMContentLoaded", () => {
   if (searchBtn) {
     searchBtn.addEventListener("click", handleSearch);
   }
+
+  //botones de color 
+  // colorButtons.forEach(button => {
+  //   button.addEventListener('click', function() {
+  //     // 1. Saber qué número de color se tocó (0, 1, 2...)
+  //     const index = this.getAttribute('data-index');
+      
+  //     // 2. Encontrar a qué tarjeta de producto pertenece este botón
+  //     const card = this.closest('.catalog-card');
+      
+  //     // 3. Encontrar la "pista" de imágenes de esa tarjeta específica
+  //     const track = card.querySelector('.carousel-track');
+  //     const images = track.querySelectorAll('img');
+
+  //     // 4. Solo mover si realmente existe una imagen para ese color
+  //     if (index < images.length) {
+  //       // Hacemos el cálculo matemático para mover la imagen a la izquierda (-100%, -200%, etc.)
+  //       const translateX = -(index * 100);
+        
+  //       // Aplicamos el movimiento y la transición suave
+  //       track.style.transform = `translateX(${translateX}%)`;
+  //       track.style.transition = 'transform 0.5s ease-in-out';
+
+  //       // 5. Quitarle la clase "active" a los otros colores de este mismo producto y ponérsela al que tocamos
+  //       const siblings = this.parentElement.querySelectorAll('.color-btn');
+  //       siblings.forEach(sibling => sibling.classList.remove('active'));
+  //       this.classList.add('active');
+  //     } else {
+  //       console.warn("Falta agregar la imagen para este color en tu carpeta/HTML");
+  //     }
+  //   });
+  // });
+
+
+  // Botones de color
+colorButtons.forEach(button => {
+  button.addEventListener('click', function() {
+    // 1. Saber qué número de color se tocó (0, 1, 2...)
+    const index = parseInt(this.getAttribute('data-index'));
+    
+    // 2. Encontrar a qué tarjeta de producto pertenece este botón
+    const card = this.closest('.catalog-card');
+    
+    // 3. Encontrar la "pista" de imágenes de esa tarjeta específica
+    const track = card.querySelector('.carousel-track');
+    const images = track.querySelectorAll('img');
+
+    // 4. Solo cambiar si realmente existe una imagen para ese color
+    if (index < images.length) {
+
+      // -------------------------------------------------------------
+      // SI TIENE LA CLASE "fade-mode", HACE LA TRANSICIÓN SUAVE (FADE)
+      // -------------------------------------------------------------
+      if (track.classList.contains('fade-mode')) {
+        images.forEach((img, i) => {
+          if (i === index) {
+            img.classList.add('active');
+          } else {
+            img.classList.remove('active');
+          }
+        });
+      } 
+      // -------------------------------------------------------------
+      // SI NO LA TIENE, HACE EL MOVIMIENTO LATERAL TRADICIONAL
+      // -------------------------------------------------------------
+      else {
+        const translateX = -(index * 100);
+        track.style.transform = `translateX(${translateX}%)`;
+        track.style.transition = 'transform 0.5s ease-in-out';
+      }
+
+      // 5. Quitarle la clase "active" a los otros colores de este mismo producto y ponérsela al que tocamos
+      const siblings = this.parentElement.querySelectorAll('.color-btn');
+      siblings.forEach(sibling => sibling.classList.remove('active'));
+      this.classList.add('active');
+
+    } else {
+      console.warn("Falta agregar la imagen para este color en tu carpeta/HTML");
+    }
+  });
+});
+
+
+
+
 
   // ==========================================================================
   // 3. CARRUSEL DE IMÁGENES
