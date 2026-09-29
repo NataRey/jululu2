@@ -12,6 +12,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../../index.css">
   <link rel="stylesheet" href="../css/corporativos.css" />
+  <script src="corporativos.js"></script>
 </head>
 <body>
 
@@ -49,10 +50,10 @@
 
     <!-- Enlaces del Menú -->
     <ul class="nav-list" id="navList">
-  <li><a href="../../index.html" class="active">INICIO</a></li>
+  <li><a href="../../index.html" >INICIO</a></li>
   <li><a href="./productos.html">PRODUCTOS</a></li>
   <li><a href="./personales.html">PERSONALES</a></li>
-  <li><a href="./corporativos.html">CORPORATIVOS</a></li>
+  <li><a href="./corporativos.html" class="active">CORPORATIVOS</a></li>
   <li><a href="./galeria.html">GALERIA</a></li>
 </ul>
     <!-- BOTÓN HAMBURGUESA (Móviles / Tablets) -->
@@ -70,19 +71,31 @@
       
       <!-- Set Bienestar Diario -->
       <div class="col">
-        <div class="card h-100">
-          <img src="../../img/Producto/Corporativos/Set Bienestar Diario.png" class="card-img-top" alt="Set Bienestar Diario">
-          <div class="card-body">
-            <h4 class="mt-2">Set Bienestar Diario</h4>
+        <div class="card h-100 border-0 overflow-hidden card-efecto" 
+          data-bs-toggle="modal" 
+          data-bs-target="#modalProductoUnico"
+          data-titulo="Set Bienestar Diario"
+          data-imagen="../../img/Producto/Corporativos/SetBienestarDiario.png"
+          data-descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+          style="cursor: pointer;">
+          <img src="../../img/Producto/Corporativos/SetBienestarDiario.png" class="card-img-top img-fluid" alt="Set Bienestar Diario">
+            <div class="card-body-overlay">
+          <h4 class="mt-2 text-white">Set Bienestar Diario</h4>
           </div>
         </div>
       </div>
 
       <!-- Set bienvenida -->
       <div class="col">
-        <div class="card h-100">
-          <img src="../../img/Producto/Corporativos/Set bienvenida.png" class="card-img-top" alt="Set bienvenida">
-          <div class="card-body">
+        <div class="card h-100 border-0 overflow-hidden card-efecto"
+        data-bs-toggle="modal" 
+          data-bs-target="#modalProductoUnico"
+          data-titulo="Set Bienvenida"
+          data-imagen="../../img/Producto/Corporativos/Setbienvenida.pn"
+          data-descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+          style="cursor: pointer;">
+          <img src="../../img/Producto/Corporativos/Setbienvenida.png" class="card-img-top" alt="Set bienvenida">
+          <div class="card-body-overlay">
             <h4 class="mt-2">Set bienvenida</h4>
           </div>
         </div>
@@ -90,9 +103,15 @@
 
       <!-- Set Black -->
       <div class="col">
-        <div class="card h-100">
-          <img src="../../img/Producto/Corporativos/Set Black.png" class="card-img-top" alt="Set Black">
-          <div class="card-body">
+        <div class="card h-100 border-0 overflow-hidden card-efecto"
+        data-bs-toggle="modal" 
+          data-bs-target="#modalProductoUnico"
+          data-titulo="Set Black"
+          data-imagen="../../img/Producto/Corporativos/SetBlack.png"
+          data-descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+          style="cursor: pointer;">
+          <img src="../../img/Producto/Corporativos/SetBlack.png" class="card-img-top" alt="Set Black">
+          <div class="card-body-overlay">
             <h4 class="mt-2">Set Black</h4>
           </div>
         </div>
@@ -100,9 +119,15 @@
 
       <!-- Set dia de sol -->
       <div class="col">
-        <div class="card h-100">
-          <img src="../../img/Producto/Corporativos/Set dia de sol.png" class="card-img-top" alt="Set dia de sol">
-          <div class="card-body">
+        <div class="card h-100 border-0 overflow-hidden card-efecto"
+        data-bs-toggle="modal" 
+          data-bs-target="#modalProductoUnico"
+          data-titulo="Set Día de Sol"
+          data-imagen="../../img/Producto/Corporativos/Setdiadesol.png"
+          data-descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+          style="cursor: pointer;">
+          <img src="../../img/Producto/Corporativos/Setdiadesol.png" class="card-img-top" alt="Set dia de sol">
+          <div class="card-body-overlay">
             <h4 class="mt-2">Set dia de sol</h4>
           </div>
         </div>
@@ -110,9 +135,15 @@
 
       <!-- Set escencial -->
       <div class="col">
-        <div class="card h-100">
-          <img src="../../img/Producto/Corporativos/Set escencial.png" class="card-img-top" alt="Set escencial">
-          <div class="card-body">
+        <div class="card h-100 border-0 overflow-hidden card-efecto"
+        data-bs-toggle="modal" 
+          data-bs-target="#modalProductoUnico"
+          data-titulo="Set Escencial"
+          data-imagen="../../img/Producto/Corporativos/Setescencial.pn"
+          data-descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+          style="cursor: pointer;">
+          <img src="../../img/Producto/Corporativos/Setescencial.png" class="card-img-top" alt="Set escencial">
+          <div class="card-body-overlay">
             <h4 class="mt-2">Set escencial</h4>
           </div>
         </div>
@@ -120,9 +151,15 @@
 
       <!-- Set experiencia de Cafe -->
       <div class="col">
-        <div class="card h-100">
-          <img src="../../img/Producto/Corporativos/Set experiencia de Cafe.png" class="card-img-top" alt="Set experiencia de Cafe">
-          <div class="card-body">
+        <div class="card h-100 border-0 overflow-hidden card-efecto"
+        data-bs-toggle="modal" 
+          data-bs-target="#modalProductoUnico"
+          data-titulo="Set Experiencia de Café"
+          data-imagen="../../img/Producto/Corporativos/SetexperienciadeCafe.png"
+          data-descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+          style="cursor: pointer;">
+          <img src="../../img/Producto/Corporativos/SetexperienciadeCafe.png" class="card-img-top" alt="Set experiencia de Cafe">
+          <div class="card-body-overlay">
             <h4 class="mt-2">Set experiencia de Cafe</h4>
           </div>
         </div>
@@ -130,9 +167,15 @@
 
       <!-- Set felices fiestas -->
       <div class="col">
-        <div class="card h-100">
-          <img src="../../img/Producto/Corporativos/Set felices fiestas.png" class="card-img-top" alt="Set felices fiestas">
-          <div class="card-body">
+        <div class="card h-100 border-0 overflow-hidden card-efecto"
+        data-bs-toggle="modal" 
+          data-bs-target="#modalProductoUnico"
+          data-titulo="Set Felices Fiestas"
+          data-imagen="../../img/Producto/Corporativos/Setfelicesfiestas.png"
+          data-descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+          style="cursor: pointer;">
+          <img src="../../img/Producto/Corporativos/Setfelicesfiestas.png" class="card-img-top" alt="Set felices fiestas">
+          <div class="card-body-overlay">
             <h4 class="mt-2">Set felices fiestas</h4>
           </div>
         </div>
@@ -140,9 +183,15 @@
 
       <!-- Set Gran Reserva -->
       <div class="col">
-        <div class="card h-100">
-          <img src="../../img/Producto/Corporativos/Set Gran Reserva.png" class="card-img-top" alt="Set Gran Reserva">
-          <div class="card-body">
+        <div class="card h-100 border-0 overflow-hidden card-efecto"
+        data-bs-toggle="modal" 
+          data-bs-target="#modalProductoUnico"
+          data-titulo="Set Gran Reserva"
+          data-imagen="../../img/Producto/Corporativos/SetGranReserva.png"
+          data-descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+          style="cursor: pointer;">
+          <img src="../../img/Producto/Corporativos/SetGranReserva.png" class="card-img-top" alt="Set Gran Reserva">
+          <div class="card-body-overlay">
             <h4 class="mt-2">Set Gran Reserva</h4>
           </div>
         </div>
@@ -150,9 +199,15 @@
 
       <!-- Set michelada -->
       <div class="col">
-        <div class="card h-100">
-          <img src="../../img/Producto/Corporativos/Set michelada.png" class="card-img-top" alt="Set Michelada">
-          <div class="card-body">
+        <div class="card h-100 border-0 overflow-hidden card-efecto"
+        data-bs-toggle="modal" 
+          data-bs-target="#modalProductoUnico"
+          data-titulo="Set Michelada"
+          data-imagen="../../img/Producto/Corporativos/Setmichelada.png"
+          data-descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+          style="cursor: pointer;">
+          <img src="../../img/Producto/Corporativos/Setmichelada.png" class="card-img-top" alt="Set Michelada">
+          <div class="card-body-overlay">
             <h4 class="mt-2">Set Michelada</h4>
           </div>
         </div>
@@ -160,9 +215,15 @@
 
       <!-- Set Noche de Velitas -->
       <div class="col">
-        <div class="card h-100">
-          <img src="../../img/Producto/Corporativos/Set Noche de Velitas.png" class="card-img-top" alt="Set Noche de Velitas">
-          <div class="card-body">
+        <div class="card h-100 border-0 overflow-hidden card-efecto"
+        data-bs-toggle="modal" 
+          data-bs-target="#modalProductoUnico"
+          data-titulo="Set Noche de Velitas"
+          data-imagen="../../img/Producto/Corporativos/SetNochedeVelitas.png"
+          data-descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+          style="cursor: pointer;">
+          <img src="../../img/Producto/Corporativos/SetNochedeVelitas.png" class="card-img-top" alt="Set Noche de Velitas">
+          <div class="card-body-overlay">
             <h4 class="mt-2">Set Noche de Velitas</h4>
           </div>
         </div>
@@ -170,9 +231,15 @@
 
       <!-- Set office -->
       <div class="col">
-        <div class="card h-100">
-          <img src="../../img/Producto/Corporativos/Set office azul.png" class="card-img-top" alt="Set office">
-          <div class="card-body">
+        <div class="card h-100 border-0 overflow-hidden card-efecto"
+        data-bs-toggle="modal" 
+          data-bs-target="#modalProductoUnico"
+          data-titulo="Set Office Azul"
+          data-imagen="../../img/Producto/Corporativos/Setofficeazul.png"
+          data-descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+          style="cursor: pointer;">
+          <img src="../../img/Producto/Corporativos/Setofficeazul.png" class="card-img-top" alt="Set office">
+          <div class="card-body-overlay">
             <h4 class="mt-2">Set office blue</h4>
           </div>
         </div>
@@ -180,9 +247,15 @@
 
       <!-- Set office -->
       <div class="col">
-        <div class="card h-100">
-          <img src="../../img/Producto/Corporativos/Set office Negro.png" class="card-img-top" alt="Set office">
-          <div class="card-body">
+        <div class="card h-100 border-0 overflow-hidden card-efecto"
+        data-bs-toggle="modal" 
+          data-bs-target="#modalProductoUnico"
+          data-titulo="Set Office Negro"
+          data-imagen="../../img/Producto/Corporativos/SetofficeNegro.png"
+          data-descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+          style="cursor: pointer;">
+          <img src="../../img/Producto/Corporativos/SetofficeNegro.png" class="card-img-top" alt="Set office">
+          <div class="card-body-overlay">
             <h4 class="mt-2">Set office blue</h4>
           </div>
         </div>
@@ -190,9 +263,15 @@
 
       <!-- Set office -->
       <div class="col">
-        <div class="card h-100">
-          <img src="../../img/Producto/Corporativos/Set office Roja.png" class="card-img-top" alt="Set office">
-          <div class="card-body">
+        <div class="card h-100 border-0 overflow-hidden card-efecto"
+        data-bs-toggle="modal" 
+          data-bs-target="#modalProductoUnico"
+          data-titulo="Set Office Roja"
+          data-imagen="../../img/Producto/Corporativos/SetofficeRoja.png"
+          data-descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+          style="cursor: pointer;">
+          <img src="../../img/Producto/Corporativos/SetofficeRoja.png" class="card-img-top" alt="Set office">
+          <div class="card-body-overlay">
             <h4 class="mt-2">Set office blue</h4>
           </div>
         </div>
@@ -200,9 +279,15 @@
 
       <!-- Set Práctico -->
       <div class="col">
-        <div class="card h-100">
-          <img src="../../img/Producto/Corporativos/Set Práctico.png" class="card-img-top" alt="Set Práctico">
-          <div class="card-body">
+        <div class="card h-100 border-0 overflow-hidden card-efecto"
+        data-bs-toggle="modal" 
+          data-bs-target="#modalProductoUnico"
+          data-titulo="Set Práctico"
+          data-imagen="../../img/Producto/Corporativos/SetPráctico.png"
+          data-descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+          style="cursor: pointer;">
+          <img src="../../img/Producto/Corporativos/SetPráctico.png" class="card-img-top" alt="Set Práctico">
+          <div class="card-body-overlay">
             <h4 class="mt-2">Set Práctico</h4>
           </div>
         </div>
@@ -210,9 +295,15 @@
 
       <!-- Set reconocimiento -->
       <div class="col">
-        <div class="card h-100">
-          <img src="../../img/Producto/Corporativos/Set reconocimiento.png" class="card-img-top" alt="Set reconocimiento">
-          <div class="card-body">
+        <div class="card h-100 border-0 overflow-hidden card-efecto"
+        data-bs-toggle="modal" 
+          data-bs-target="#modalProductoUnico"
+          data-titulo="Set Reconocimiento"
+          data-imagen="../../img/Producto/Corporativos/Setreconocimiento.png"
+          data-descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+          style="cursor: pointer;">
+          <img src="../../img/Producto/Corporativos/Setreconocimiento.png" class="card-img-top" alt="Set reconocimiento">
+          <div class="card-body-overlay">
             <h4 class="mt-2">Set reconocimiento</h4>
           </div>
         </div>
@@ -220,9 +311,15 @@
 
       <!-- Set Rose -->
       <div class="col">
-        <div class="card h-100">
-          <img src="../../img/Producto/Corporativos/Set Rose.png" class="card-img-top" alt="Set Rose">
-          <div class="card-body">
+        <div class="card h-100 border-0 overflow-hidden card-efecto"
+        data-bs-toggle="modal" 
+          data-bs-target="#modalProductoUnico"
+          data-titulo="Set Rose"
+          data-imagen="../../img/Producto/Corporativos/SetRose.png"
+          data-descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+          style="cursor: pointer;">
+          <img src="../../img/Producto/Corporativos/SetRose.png" class="card-img-top" alt="Set Rose">
+          <div class="card-body-overlay">
             <h4 class="mt-2">Set Rose</h4>
           </div>
         </div>
@@ -230,11 +327,56 @@
 
       <!-- Set Violet Luxury -->
       <div class="col">
-        <div class="card h-100">
-          <img src="../../img/Producto/Corporativos/Set Violet Luxury.png" class="card-img-top" alt="Set Violet Luxury">
-          <div class="card-body">
+        <div class="card h-100 border-0 overflow-hidden card-efecto"
+        data-bs-toggle="modal" 
+          data-bs-target="#modalProductoUnico"
+          data-titulo="Set Violet Luxury"
+          data-imagen="../../img/Producto/Corporativos/SetVioletLuxury.png"
+          data-descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+          style="cursor: pointer;">
+          <img src="../../img/Producto/Corporativos/SetVioletLuxury.png" class="card-img-top" alt="Set Violet Luxury">
+          <div class="card-body-overlay">
             <h4 class="mt-2">Set Violet Luxury</h4>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= 
+     ÚNICO MODAL COMPARTIDO
+     ================ -->
+<div class="modal fade" id="modalProductoUnico" tabindex="-1" aria-labelledby="modalProductoUnicoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content border-0 shadow-lg">
+      
+      <div class="modal-header border-0 pb-0">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body py-4 px-4">
+        <div class="row align-items-center">
+          
+          <!-- Imagen con efecto lupa -->
+          <div class="col-md-6 text-center mb-3 mb-md-0">
+            <div class="contenedor-lupa overflow-hidden rounded shadow-sm">
+              <img id="modalImg" src="" class="img-fluid imagen-zoom" alt="Imagen del producto">
+            </div>
+            <small class="text-muted d-block mt-2"><i class="bi bi-search"></i> Pasa el cursor para ver detalles</small>
+          </div>
+
+          <!-- Título y Descripción -->
+          <div class="col-md-6">
+            <h3 id="modalProductoUnicoLabel" class="fw-bold mb-3"></h3>
+            <p id="modalDesc" class="text-muted text-justify"></p>
+  
+          <!-- Nuevo Botón de WhatsApp Dinámico -->
+          <a id="btnWhatsApp" href="#" target="_blank" class="btn btn-success w-100 mt-3 d-flex align-items-center justify-content-center gap-2 shadow-sm">
+          <i class="bi bi-whatsapp fs-5"></i> Solicitar / Cotizar por WhatsApp
+          </a>
+          </div>
+
         </div>
       </div>
 
