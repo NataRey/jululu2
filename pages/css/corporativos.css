@@ -63,3 +63,25 @@
   transform: scale(2); /* Ajusta este valor si quieres que acerque más o menos (ej. 1.8 o 2.5) */
   cursor: zoom-out;
 }
+
+/* Estilo base para las tarjetas corporativas con borde y profundidad inicial */
+.card-efecto {
+  border: 2px solid rgba(0, 86, 207, 0.35) !important; /* Aplica tu color de borde exacto */
+  border-radius: 12px;                  /* Bordes sutilmente redondeados para un mejor acabado 3D */
+  background-color: #ffffff;
+  /* Capas de sombra para simular volumen 3D estático */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 
+              0 1px 3px rgba(0, 86, 207, 0.1);
+  transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1); /* Transición suave para el movimiento */
+}
+
+/* Efecto 3D avanzado al pasar el cursor (Hover) */
+.card-efecto:hover {
+  /* La tarjeta se eleva visualmente hacia arriba */
+  transform: translateY(-8px);
+  
+  /* Sombra profunda y difuminada que refuerza el efecto tridimensional, 
+     acompañada de un resplandor sutil del color #0056cf */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12), 
+              0 5px 15px rgba(0, 86, 207, 0.25);
+}
